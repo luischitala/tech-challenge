@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      context: app/v1/
+      dockerfile: dockerfile
+    restart: on-failure
+    tty: true
+    stdin_open: true
+    env_file:
+      - app/v1/.env
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/usr/src/app/v1
